@@ -4,6 +4,7 @@ codemix.dont.show.upsell.until=1536782511238
 configurationInstallLocation=/Applications/STS.app/Contents/Eclipse/
 eclipse.preferences.version=1
 iconcolormode=primary
+includeThemingInOomph=false
 last.download.attempt.time=1535140910578
 lastConfiguration=1534365577231
 newinstall=false
