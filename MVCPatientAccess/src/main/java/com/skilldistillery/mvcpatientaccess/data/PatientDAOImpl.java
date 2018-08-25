@@ -23,29 +23,31 @@ public class PatientDAOImpl implements PatientDAO {
 	}
 
 	@Override
-	public List<Patient> listPatient(int id) {
+	public List<Patient> listPatientByName(String lastName) {
+		return em.createQuery("SELECT p FROM Patient p WHERE p.lastName = ?", Patient.class).setParameter(1, lastName)
+				.getResultList();
+	}
+
+	@Override
+	public List<Patient> listAllPatients() {
 		return em.createQuery("SELECT p FROM Patient p", Patient.class).getResultList();
 	}
 
 	@Override
 	public Patient addPatient(Patient patient) {
-//		em.getTransaction().begin();
 		em.persist(patient);
 		em.flush();
-//		em.getTransaction().commit();
 		return patient;
 	}
 
 	@Override
 	public Patient updatePatient(Patient patient) {
-//		em.getTransaction().begin();
 		Patient updatedPat = em.find(Patient.class, patient.getId());
-		System.out.println(updatedPat);
+//		System.out.println(updatedPat);
 		updatedPat.setDoctor(patient.getDoctor());
 		updatedPat.setEmail(patient.getEmail());
 		updatedPat.setFirstName(patient.getFirstName());
 		updatedPat.setLastName(patient.getLastName());
-//		em.getTransaction().commit();
 
 		return updatedPat;
 	}
@@ -53,9 +55,7 @@ public class PatientDAOImpl implements PatientDAO {
 	@Override
 	public boolean deletePatient(int id) {
 		Patient p = em.find(Patient.class, id);
-		em.getTransaction().begin();
 		em.remove(p);
-		em.getTransaction().commit();
 
 		return (em.find(Patient.class, id) == null);
 
