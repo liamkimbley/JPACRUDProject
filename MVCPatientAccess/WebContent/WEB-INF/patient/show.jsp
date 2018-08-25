@@ -69,7 +69,7 @@
 	
 	    <c:otherwise>
   			  No Patient found<br>
- 		 </c:otherwise>
+ 		</c:otherwise>
 
 </c:choose>
 <br>
