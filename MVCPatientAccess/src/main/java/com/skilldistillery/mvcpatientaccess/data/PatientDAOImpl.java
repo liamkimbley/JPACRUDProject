@@ -24,7 +24,7 @@ public class PatientDAOImpl implements PatientDAO {
 
 	@Override
 	public List<Patient> listPatientByName(String lastName) {
-		return em.createQuery("SELECT p FROM Patient p WHERE p.lastName = ?", Patient.class).setParameter(1, lastName)
+		return em.createQuery("SELECT p FROM Patient p WHERE p.lastName = :lastName", Patient.class).setParameter("lastName", lastName)
 				.getResultList();
 	}
 
