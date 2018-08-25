@@ -8,7 +8,7 @@ public interface PatientDAO {
 
 	public Patient showPatient(int id);
 	public List<Patient> listPatient(int id);
-	public Patient addPatient();
-	public boolean updatePatient(Patient patient);
-	public boolean deletePatient(Patient patient);
+	public Patient addPatient(Patient patient);
+	public Patient updatePatient(Patient patient);
+	public boolean deletePatient(int id);
 }

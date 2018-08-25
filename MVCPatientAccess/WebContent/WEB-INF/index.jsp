@@ -16,6 +16,11 @@
 		<input type="text" name="pid" /> <input type="submit"
 			value="Find Patient" />
 	</form>
+	
+	<form action="newPatient.do" method="GET">
+		 <input type="submit" value="Add Patient" />
+	</form>
+
 
 </body>
 </html>
